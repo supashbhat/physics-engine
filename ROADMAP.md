@@ -1,132 +1,66 @@
-# Physics Engine Development Roadmap
+# Physics Engine Roadmap
 
-## Project Evolution
+This roadmap tracks the project from rigid-body simulation and integrator benchmarking toward richer interaction, many-body scaling, and more unified simulation surfaces.
 
-This document traces the development journey from a simple kinematics calculator to a full 3D interactive physics engine.
+## Current Foundation
 
----
+Already in place:
 
-## Phase 1: Kinematics Calculator
-**Goal:** Build a simple 2D projectile motion simulator
+- Euler and RK4 integration
+- Multi-body rigid-body simulation
+- Ground and circle-circle collision handling
+- Energy and spring benchmark scripts
+- Real-time Python sandbox with live controls
+- Browser-connected 2D and 3D demo surfaces
 
-- Basic velocity/position calculations
-- Euler integration
-- Gravity as a constant force
-- Terminal output only
+## Active Workstreams
 
-**Status:** ✅ Complete
+### 1. Barnes-Hut and many-body scaling
 
----
+Current status: underway
 
-## Phase 2: 2D Physics Engine
-**Goal:** Add collision detection and multi-body dynamics
+- 2D Barnes-Hut quadtree implementation
+- Exact-force baseline for correctness checks
+- Benchmark script for force-pass timing and RMS acceleration error
+- First-pass docs around `theta`, approximation quality, and scaling goals
 
-- Rigid body dynamics with mass and restitution
-- Ground plane collisions
-- Sphere-sphere collision detection
-- RK4 integration for higher accuracy
-- Energy conservation benchmarks
+Next steps:
 
-**Status:** ✅ Complete
+- Add a visual N-body surface instead of benchmark output alone
+- Scale benchmarks to larger particle counts
+- Produce cleaner benchmark artifacts and plots
+- Connect many-body work to a public-facing simulation demo
 
----
+### 2. Simulation UX
 
-## Phase 3: Interactive Visualization
-**Goal:** Make it visual and interactive
+Current status: strong local foundation
 
-- Pygame real-time visualization
-- Mouse dragging to throw balls
-- WASD gravity direction control
-- Window drag inertia (shake effect)
-- Energy display and trails
+- Scene presets
+- Live gravity, time-scale, and trail controls
+- Pause / step controls
+- Help overlay and HUD
+- Energy-history sparkline
 
-**Status:** ✅ Complete
+Next steps:
 
----
+- Guided scenes that teach specific numerical ideas
+- More scenario-driven presets
+- Tighter alignment between local and browser-facing demos
 
-## Phase 4: Web-Based Demo
-**Goal:** Deploy to web for instant access
+### 3. Engine depth
 
-- JavaScript/Canvas implementation
-- Live demo on portfolio site
-- Click and drag interaction
-- Mobile-responsive design
+Current status: rigid-body and collision fundamentals are in place
 
-**Status:** ✅ Complete
+Next steps:
 
----
+- More collision shapes beyond circles
+- Springs, joints, and mechanism systems
+- Clearer separation between engine logic and presentation layers
+- Stronger benchmark coverage across parameter regimes
 
-## Phase 5: 3D Physics Engine
-**Goal:** Upgrade to full 3D with intuitive controls
+## Longer-Term Direction
 
-### Planned Features:
-
-| Feature | Description | Status |
-|---------|-------------|--------|
-| 3D Rendering | Three.js with WebGL | 🔄 In Progress |
-| 3D Spheres | Realistic ball rendering with lighting | 🔄 In Progress |
-| Rotation Controls | WASD rotates the camera/view | 🔄 In Progress |
-| Gravity Vector | 3D gravity (X, Y, Z components) | 🔄 In Progress |
-| Window Shake | Detect window movement for inertia | 🔄 In Progress |
-| Separate Demo Page | Full-screen interactive experience | 🔄 In Progress |
-
-### Technical Implementation
-
-**3D Environment:**
-- Use Three.js for WebGL rendering
-- Perspective camera with orbital controls
-- Point lights and ambient lighting for realism
-
-**Physics in 3D:**
-- Extend 2D physics to 3D vectors (x, y, z)
-- Sphere-sphere collision in 3D
-- Ground plane at y = -5
-- Walls at x = ±8, z = ±8
-
-**Controls:**
-- WASD: Rotate view around scene
-- Shift/Ctrl: Move camera up/down
-- Mouse drag: Throw balls in 3D space
-- Number keys: Change gravity direction (1=down, 2=up, 3=left, 4=right, 5=forward, 6=back)
-
-**Window Shake:**
-- Track window position via requestAnimationFrame
-- Apply impulse to all balls based on window movement delta
-- Same physics as 2D version but in 3D
-
----
-
-## Phase 6: CUDA GPU Acceleration (Future)
-**Goal:** Scale to 10,000+ particles
-
-- Parallel collision detection
-- GPU-based integration
-- Real-time performance metrics
-
----
-
-## How to View the Project
-
-| Version | Link |
-|---------|------|
-| C++ Engine | [GitHub Repo](https://github.com/supashbhat/physics-engine) |
-| Python Demo | Run `python3 visualize_realtime.py` |
-| Web Demo (2D) | [Portfolio Site](https://supashbhat.github.io) |
-| Web Demo (3D) | Coming soon: `/3d-physics.html` |
-
----
-
-## Development Timeline
-
-| Phase | Started | Completed |
-|-------|---------|-----------|
-| Phase 1 | March 30, 2026 | March 30, 2026 |
-| Phase 2 | March 30, 2026 | March 30, 2026 |
-| Phase 3 | March 30, 2026 | March 30, 2026 |
-| Phase 4 | March 30, 2026 | March 30, 2026 |
-| Phase 5 | March 30, 2026 | March 31, 2026 |
-| Phase 6 | TBD | TBD |
-
----
-
-*This project is part of an ongoing exploration into computational physics, numerical methods, and interactive simulation.*
+- Unify the simulation story across C++, Python, and web surfaces
+- Make the portfolio demos feel like real educational/research tools
+- Expand from rigid-body interaction into larger-scale gravitational and algorithmic simulations
+- Keep the project useful both as a sandbox and as a serious benchmark-oriented physics repo
