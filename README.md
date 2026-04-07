@@ -126,8 +126,8 @@ The aim is to make computational physics feel both rigorous and explorable: nume
 Current directions include:
 
 - Barnes-Hut visualization and larger `N` benchmarking
-- broader collision and constraint systems
-- more unified architecture between the C++ core and interactive surfaces
-- stronger browser-facing demos tied into the portfolio
+- Broader collision and constraint systems
+- More unified architecture between the C++ core and interactive surfaces
+- Stronger browser-facing demos tied into the portfolio
 
 More detail is available in [ROADMAP.md](ROADMAP.md).

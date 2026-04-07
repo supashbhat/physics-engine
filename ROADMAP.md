@@ -61,6 +61,6 @@ Next steps:
 ## Longer-Term Direction
 
 - Unify the simulation story across C++, Python, and web surfaces
-- Make the portfolio demos feel like real educational/research tools
+- Make the portfolio demos feel like real educational and research tools
 - Expand from rigid-body interaction into larger-scale gravitational and algorithmic simulations
 - Keep the project useful both as a sandbox and as a serious benchmark-oriented physics repo
